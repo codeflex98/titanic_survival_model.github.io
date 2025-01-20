@@ -16,36 +16,17 @@ st.write("This app predicts whether a passenger survived the Titanic disaster ba
 # Input form for user features
 st.sidebar.header("Passanger Details")
 
-# User input form
-def user_input_features():
-    pclass = st.sidebar.selectbox("Passenger Class (Pclass)", [1, 2, 3], index=2)
-    sex1 = st.sidebar.selectbox("Sex", ["male", "female"])
-    sex = 1 if sex1 == "male" else 0
-    age = st.sidebar.slider("Age", 0, 80, 30)
-    sibsp = st.sidebar.slider("Number of Siblings/Spouses Aboard (SibSp)", 0, 8, 0)
-    parch = st.sidebar.slider("Number of Parents/Children Aboard (Parch)", 0, 6, 0)
-    fare = st.sidebar.slider("Fare", 0.0, 512.0, 32.2)
-    embarked1 = st.sidebar.selectbox("Port of Embarkation", ["C", "Q", "S"], index=2)
-    embarked = 2 if embarked1 == "C" else (1 if embarked1== "Q" else 0)
-    
-    # Encode gender as numerical
-    gender_encoded = 1 if sex == "Male" else 0
-    embarked_encoded = 2 if embarked == "C" else (1 if embarked == "Q" else 0)
-    
-    # Create a dataframe for the input
-    data = {
-        "GENDER": gender_encoded,
-        "AGE": age,
-        "SIBLINGS": sibsp,
-        "NUMBER OF PARENTS": parch,
-        "TICKET PRICE": fare,
-        "PORT OF EMBARKATION": embarked_encoded,
-    }
-    
-    return pd.DataFrame(data, index=[0])
-        
-    
-input_data = user_input_features()
+pclass = st.sidebar.selectbox("Passenger Class (Pclass)", [1, 2, 3], index=2)
+sex1 = st.sidebar.selectbox("Sex", ["male", "female"], index=0)
+sex = 1 if sex1 == "male" else 0
+age = st.sidebar.slider("Age", 0, 80, 30)
+sibsp = st.sidebar.slider("Number of Siblings/Spouses Aboard (SibSp)", 0, 8, 0)
+parch = st.sidebar.slider("Number of Parents/Children Aboard (Parch)", 0, 6, 0)
+fare = st.sidebar.slider("Fare", 0.0, 512.0, 32.2)
+embarked1 = st.sidebar.selectbox("Port of Embarkation", ["C", "Q", "S"], index=2)
+embarked = 2 if embarked1 == "C" else (1 if embarked1 == "Q" else 0)
+
+input_data = np.array([[pclass, sex, age, sibsp, parch, fare, embarked]])
 print(f"Input data shape: {input_data.shape}")
     
 # Button to trigger prediction
