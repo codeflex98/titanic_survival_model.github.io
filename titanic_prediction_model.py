@@ -10,7 +10,7 @@ model_path = os.path.join(os.path.dirname(__file__), 'titanic suvival model.pkl'
 model = joblib.load(model_path)
 
 # App title and description
-st.title("Credit Card Fraud Detection")
+st.title("Titanic Survivor Prediction")
 st.write("This app predicts whether a passenger survived the Titanic disaster based on input features.")
 
 # Input form for user features
