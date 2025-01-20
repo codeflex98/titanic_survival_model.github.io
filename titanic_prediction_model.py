@@ -19,13 +19,15 @@ st.sidebar.header("Passanger Details")
 # User input form
 def user_input_features():
     pclass = st.sidebar.selectbox("Passenger Class (Pclass)", [1, 2, 3], index=2)
-    sex = st.sidebar.selectbox("Sex", ["male", "female"])
+    sex1 = st.sidebar.selectbox("Sex", ["male", "female"])
+    sex = 1 if sex1 == "male" else 0
     age = st.sidebar.slider("Age", 0, 80, 30)
     sibsp = st.sidebar.slider("Number of Siblings/Spouses Aboard (SibSp)", 0, 8, 0)
     parch = st.sidebar.slider("Number of Parents/Children Aboard (Parch)", 0, 6, 0)
     fare = st.sidebar.slider("Fare", 0.0, 512.0, 32.2)
-    embarked = st.sidebar.selectbox("Port of Embarkation", ["C", "Q", "S"], index=2)
-
+    embarked1 = st.sidebar.selectbox("Port of Embarkation", ["C", "Q", "S"], index=2)
+    embarked = 2 if embarked1 == "C" else (1 if embarked1== "Q" else 0)
+    
     # Encode gender as numerical
     gender_encoded = 1 if sex == "Male" else 0
     embarked_encoded = 2 if embarked == "C" else (1 if embarked == "Q" else 0)
