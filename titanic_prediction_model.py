@@ -6,7 +6,7 @@ import joblib
 import base64
 
 # Load the trained model
-model_path = os.path.join(os.path.dirname(__file__), 'titanic_suvival_model.pkl')
+model_path = os.path.join(os.path.dirname(__file__), 'titanic suvival model.pkl')
 model = joblib.load(model_path)
 
 # App title and description
