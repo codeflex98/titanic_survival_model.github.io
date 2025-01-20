@@ -1,9 +1,6 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-from sklearn.tree import DecisionTreeClassifier
-from sklearn.impute import SimpleImputer
-
 import os
 import joblib
 import base64
