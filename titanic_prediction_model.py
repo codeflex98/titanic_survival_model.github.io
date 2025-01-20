@@ -51,7 +51,6 @@ print(f"Input data shape: {input_data.shape}")
 # Button to trigger prediction
 if st.sidebar.button("Predict"):
     prediction = model.predict(input_data)[0]  # Assuming binary classification (0 or 1)
-    prediction_proba = model.predict_proba(input_data)[0]
 
        # Display results
     if prediction == 0:
